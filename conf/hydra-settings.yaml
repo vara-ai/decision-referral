@@ -1,0 +1,17 @@
+# This file contains some default Hydra settings that we want to use with every entrypoint
+# (which we do so by including `- hydra-settings` at the top of each entrypoint YAML's defaults list).
+
+defaults:
+  # We set both logging options to 'disabled' because we don't want any Hydra noise in our logs.
+  - override hydra/job_logging: stdout
+  - override hydra/hydra_logging: disabled
+
+# Here we disable Hydra artefact output (in line with https://github.com/facebookresearch/hydra/issues/910)
+# and set the dirs to the current directory to prevent changing the CWD when running inside Docker.
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+  sweep:
+    dir: .
+    subdir: .

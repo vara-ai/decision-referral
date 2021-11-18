@@ -1,0 +1,12 @@
+defaults:
+  - hydra-settings
+  - base_evaluate
+  - dr_config@decision_referral: maximal
+  - _self_
+
+threshold_setting_dataset: INTERNAL_VALIDATION_SET
+test_dataset: INTERNAL_TEST_SET
+analyze_subgroups: true
+
+decision_referral:
+  n_jobs: 1
